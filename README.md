@@ -1,4 +1,4 @@
-# enchiridion
+# Enchiridion
 The handbook of coding
 
 Inspired by:
