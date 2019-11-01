@@ -1,7 +1,5 @@
 # Coding habits for data scientists
 
-[Source](https://www.thoughtworks.com/insights/blog/coding-habits-data-scientists)
-
 * The typical code to train ML models is written in Jupyter notebooks and it's
   full of side-effects (print, .head(), .show(), plots) the code exists without
   any abstractions, modularisation and automated tests.
@@ -157,3 +155,5 @@ class TestModelMetrics(unittest.TestCase):
 > I'm not a great programmer; I'm just a good programmer with great habits ~
 > Kent Beck
 
+## Sources:
+* [Coding habits for data scientists](https://www.thoughtworks.com/insights/blog/coding-habits-data-scientists)
