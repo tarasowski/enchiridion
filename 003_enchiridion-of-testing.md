@@ -215,7 +215,8 @@ const uploadFilesPipe = asyncPipe(
 )
 
 uploadFilesPipe({ user, folder, files })
-    .then(log)```
+    .then(log)
+```
 
 3) Remove dependent logic from imperative compositions so that they can become declararitve compositions, which don't need their own unit tests.
 
