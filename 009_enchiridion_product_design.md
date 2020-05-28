@@ -36,8 +36,7 @@ leads people to erroneously conclude that a successful product would necessarily
 * If your product needs "everything" in order to be good, then it's probably not very innovative (though it might be a nice upgrade to an exisiting product). 
 * Put another way, if your product is great, it doesn`t need to be good.
 
-* If you are creating a new product, what are the three (or fewer) features that will make it so great that you can cut or half-ass everything else?
-  * Are you focusing at least 80% of your effort on getting those three things right?
+* If you are creating a new product, what are the three (or fewer) features that will make it so great that you can cut or half-ass everything else? Are you focusing at least 80% of your effort on getting those three things right?
   
 ##### Disclaimer: This advice probably only applies to consumer products (ones where the purcahser is also the user - this includes some business products). For markets that have purchasing processes with long list of feature requirements, you should probably just crank out as many features as possible and not waste time on simplicity or usability.
 
