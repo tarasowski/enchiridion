@@ -121,6 +121,6 @@ leads people to erroneously conclude that a successful product would necessarily
   
 **Disclaimer: This advice probably only applies to consumer products (ones where the purcahser is also the user - this includes some business products). For markets that have purchasing processes with long list of feature requirements, you should probably just crank out as many features as possible and not waste time on simplicity or usability.**
 
-[If your product is Great, it doesn't need to be Good. - Source](http://paulbuchheit.blogspot.com/2010/02/if-your-product-is-great-it-doesnt-need.html)
-[Progressive Enhancement - Source](https://github.com/tarasowski/enchiridion/blob/master/006_enchiridion-of-html.md)
+* [If your product is Great, it doesn't need to be Good. - Source](http://paulbuchheit.blogspot.com/2010/02/if-your-product-is-great-it-doesnt-need.html)
+* [Progressive Enhancement - Source](https://github.com/tarasowski/enchiridion/blob/master/006_enchiridion-of-html.md)
 
