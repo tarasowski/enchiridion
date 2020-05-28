@@ -19,13 +19,15 @@ leads people to erroneously conclude that a successful product would necessarily
   1) small enough to fit in your pocket
   2) had enough storage to hild many hours of music
   3) easy to sync with your Mac
-  * That is, now wireless, no ability to edit playlists on the device, no support for Ogg, nothing but the essentials, well executed
+  
+* That is, now wireless, no ability to edit playlists on the device, no support for Ogg, nothing but the essentials, well executed
   
 * Gmail had similar approach
   1) it was fast
   2) stored all of your email (back when 4MB quotas were the norm)
   3) had an innovative interface based on conversations and search
-  * The secondary and teriary features were minimal or absent, no rich text composer, address book was implemented in two days and did almost nothing
+
+* The secondary and teriary features were minimal or absent, no rich text composer, address book was implemented in two days and did almost nothing
   
 * Other features can be added or improved later on, but if the basic product isn't compelling, adding more features won't save it.
 
