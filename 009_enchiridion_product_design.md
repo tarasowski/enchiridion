@@ -38,7 +38,7 @@ leads people to erroneously conclude that a successful product would necessarily
 
 * If you are creating a new product, what are the three (or fewer) features that will make it so great that you can cut or half-ass everything else? Are you focusing at least 80% of your effort on getting those three things right?
   
-##### Disclaimer: This advice probably only applies to consumer products (ones where the purcahser is also the user - this includes some business products). For markets that have purchasing processes with long list of feature requirements, you should probably just crank out as many features as possible and not waste time on simplicity or usability.
+**Disclaimer: This advice probably only applies to consumer products (ones where the purcahser is also the user - this includes some business products). For markets that have purchasing processes with long list of feature requirements, you should probably just crank out as many features as possible and not waste time on simplicity or usability.**
 
 [If your product is Great, it doesn't need to be Good. - Source](http://paulbuchheit.blogspot.com/2010/02/if-your-product-is-great-it-doesnt-need.html)
 
