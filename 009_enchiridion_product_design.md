@@ -2,7 +2,7 @@
 
 See: [Progressive Enhancement](https://github.com/tarasowski/enchiridion/blob/master/006_enchiridion-of-html.md)
 
-## 
+## Three Features or Less
 
 * Product reviews are similar in that they focus on the "missing" features. 
 * Those missing features are typically available in a variety of unsuccessfull competitng products, which
