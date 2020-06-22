@@ -3,7 +3,7 @@
 # Table of contents
 
 1. Progressive Enhancement
-2. Three features or less[## Three Features or Less]
+2. [Three features or less](## Three Features or Less)
 
 ## Progressive Enhancement
 
