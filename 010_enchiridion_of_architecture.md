@@ -10,7 +10,7 @@ Boundaries group things together that change together at the same time and the s
 - public API: exported functions form index.ts
 
 ```
-b/
+lib/
  └── billing/
      ├── stripe.ts
      ├── plans.ts
