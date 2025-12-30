@@ -84,5 +84,18 @@ Boundaries help to delay decisions. Build a system without connecting to the rea
             -> API route (src/app/api/petsitter/unavailability/route.ts)
       -> refresh list + recompute day keys (src/features/availability/domain/availability.ts)
 
+• Use micro‑hex only when it earns its cost. Don’t use it for:
+
+  - Trivial CRUD pages (single screen, little logic). Direct UI → route → DB is faster and
+    clearer.
+  - One‑off UI experiments that might be thrown away. Keep it lightweight.
+  - Tightly coupled legacy areas where adding boundaries would fight the existing structure.
+  - Pure UI components (no business rules). A slice adds ceremony without value.
+  - Time‑critical hotfixes. Patch first, refactor later.
+
+  Rule of thumb: if the feature has shared logic, multiple entry points, or real domain rules,
+  use micro‑hex. If it’s just “fetch and render a table,” don’t.
+
+
 
 ```
