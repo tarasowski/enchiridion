@@ -5,8 +5,6 @@
 
 Architecture defines a set of components of a system. How these components are arranged within a system. How these components communicate with each other. What kind of boundaries | exist between the components. We use boundaries | to separate components from each other that shouldn't know about each other. This gives us isolation within the system that makes the system robust on itself if component failure within the system happens. One component cannot crash the whole system. Proper boundaries will give the possibility to make the components maintainable, extendable, which is in essense a base on which to build up.
 
-Boundaries can be vertical UI <|> LOGIC >|> STORAGE and can be horizonal component 1 <|> component 2 <|> component 3. If the components don't know anything about each other like the logic doesn't know about the database we use, we can simply change out the database, or if ui doesn't know anything about the business logic (dumb UI), we can change the business logic easily.
-
 Boundaries group things together that change together at the same time and the same rate(?). At the same rate means they change together if requirements change. This is single reponsobility principle (SRP). A module has one reason to change. A module is not a component a module is a BOUNDARY. The whole folder is one module: 
 - responsibility: billing
 - reasons to change: pricing/payment rules
@@ -20,7 +18,21 @@ lib/
         └── index.ts
 
 ```
-Boundaries help to delay decisions. Build a system without connecting to the real database using in-memory and later swap against real database. Boundaries enable clean separation between UI, LOGIC, STORAGE. This helps to swap out of any of the components without affecting the whole system. Change UI keep the logic and the storage or change the logic, keep the UI and the storage. It is important for our system to allow change. Boundaries allow change in the system!
+There are horizontal and vertical slicing of boundaries. Horizontal boundaries are layer for the api, for the logic for the database. Vertical slicing creates boundaries between different features of the system. Feature of customer management can be separate from feature of bookings management. Vertical slice is organized by feature and not by technical layer. Each vertical slice own its UI, core, persistance. But usually each slice owns its behavior but shares infrastructure. Microservices is a vertical slicing where each service/team retains their own everything down to the database.
+
+```
+features/
+  createOrder/
+    handler.ts
+    usecase.ts
+    repo.ts
+
+shared/
+  db/
+    connection.ts
+  ui/
+    Button.tsx
+```Boundaries help to delay decisions. Build a system without connecting to the real database using in-memory and later swap against real database. Boundaries enable clean separation between UI, LOGIC, STORAGE. This helps to swap out of any of the components without affecting the whole system. Change UI keep the logic and the storage or change the logic, keep the UI and the storage. It is important for our system to allow change. Boundaries allow change in the system!
 
 ```
   Micro‑hex in simple words
