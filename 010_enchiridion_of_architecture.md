@@ -43,6 +43,8 @@ Boundaries have costs. Deveopment effort + maintainability. They have trade-offs
 
 If you need to decide and you don't know, keep it simple! If it is not clear if boundary is needed a good sign for over-engineering. If you don't understand the abstractions (boundaries) of the sysem, you did it wrong (you are not alone!). This is bad architecture.
 
+Adding more boundaries is expensive. System evolve, boundaries evolve, architecture evolve. If system or team grows, additional boundaries are needed to maintain productivity.
+
 Boundaries help to delay decisions. Build a system without connecting to the real database using in-memory and later swap against real database. Boundaries enable clean separation between UI, LOGIC, STORAGE. This helps to swap out of any of the components without affecting the whole system. Change UI keep the logic and the storage or change the logic, keep the UI and the storage. It is important for our system to allow change. Boundaries allow change in the system!
 
 ```
@@ -125,3 +127,5 @@ Boundaries help to delay decisions. Build a system without connecting to the rea
 
 
 ```
+Resources:
+- https://convincedcoder.com/2019/04/27/Software-architecture-boundaries/
