@@ -37,6 +37,12 @@ shared/
 Boundaries can be separated by source-level: classes, methods, functions. The communication between boundaries happens with simple method calls. **For monolith systems these are the only boundaries in the system.** Not visible at deploy-time.
 Dynamically-linked deployable components. Separated components can be developed and deployed on their own. But run in the same address space and communicate via simple methods calls. As boundary there are local processes that can communicate via a socket. Services (micro-services) form the strongest level of a boundary. Services live on different machines and communicate over a network. Services have own databases. **You can combine different kind of boundaries as needed.**
 
+Boundaries have costs. Deveopment effort + maintainability. They have trade-offs and this you must assess as a developer.
+
+> If you have five teams working on a system, they will likely benefit from having five clearly separated parts with stable interfaces connecting them. The same architecture could be harmful to productivity if there is only a single small team working on the system.
+
+If you need to decide and you don't know, keep it simple!
+
 Boundaries help to delay decisions. Build a system without connecting to the real database using in-memory and later swap against real database. Boundaries enable clean separation between UI, LOGIC, STORAGE. This helps to swap out of any of the components without affecting the whole system. Change UI keep the logic and the storage or change the logic, keep the UI and the storage. It is important for our system to allow change. Boundaries allow change in the system!
 
 ```
