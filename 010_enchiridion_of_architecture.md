@@ -47,6 +47,228 @@ Adding more boundaries is expensive. System evolve, boundaries evolve, architect
 
 Boundaries help to delay decisions. Build a system without connecting to the real database using in-memory and later swap against real database. Boundaries enable clean separation between UI, LOGIC, STORAGE. This helps to swap out of any of the components without affecting the whole system. Change UI keep the logic and the storage or change the logic, keep the UI and the storage. It is important for our system to allow change. Boundaries allow change in the system!
 
+## Example 1: Simple CRUD → **No core**
+
+### Feature
+
+**Manage countries**
+
+* Fields: `id, name, isoCode`
+* Admin-only
+* Rarely changes
+* No business rules
+
+### Implementation
+
+```
+CountriesController
+  └── CountriesRepository
+```
+
+### Why no core?
+
+* Data = storage
+* No behavior to protect
+* No reuse
+* No risk
+
+👉 Adding a mini-hexagon here would be **pure overhead**.
+
+---
+
+## Example 2: CRUD + small rules → **Thin service**
+
+### Feature
+
+**User profile**
+
+Rules:
+
+* Email must be unique
+* Display name max 30 chars
+
+### Implementation
+
+```
+UserController
+  └── UpdateUserService
+        └── UserRepository
+```
+
+### Why not a core?
+
+* Rules are simple and local
+* Only one entry point
+* Low change risk
+
+👉 Service is enough.
+
+---
+
+## Example 3: Growing complexity → **Introduce a core**
+
+### Feature
+
+**Discount codes**
+
+Rules:
+
+* Expiration date
+* Usage limits
+* Cannot stack discounts
+* Admin creation + checkout usage
+
+Entry points:
+
+* Admin UI
+* Checkout API
+
+### Implementation
+
+```
+discounts/
+  core/
+    ApplyDiscountService
+    Discount
+    DiscountPolicy
+    DiscountRepository (port)
+```
+
+Adapters:
+
+* HTTP controller
+* Admin UI
+* DB adapter
+
+### Why a core now?
+
+* Multiple entry points
+* Rules must be consistent
+* Logic is reused
+
+👉 Mini-hexagon pays off.
+
+---
+
+## Example 4: High-risk domain → **Full mini-hexagon**
+
+### Feature
+
+**Bookings**
+
+Rules:
+
+* No overlapping reservations
+* Cancellation windows
+* Payments & refunds
+* Notifications
+* Time zones
+
+Entry points:
+
+* API
+* Admin dashboard
+* Background jobs
+* Webhooks
+
+### Implementation
+
+```
+bookings/
+  core/
+    CreateBookingService
+    CancelBookingService
+    Booking
+    AvailabilityPolicy
+    BookingRepository (port)
+    PaymentGateway (port)
+    NotificationPort
+```
+
+Adapters:
+
+* REST
+* DB
+* Payment provider
+* Message queue
+
+### Why strong boundaries?
+
+* Money involved
+* Many rules
+* Many integrations
+* Changes are frequent
+
+👉 This is exactly what mini-hexagon is for.
+
+---
+
+## Example 5: When teams go too far (anti-example)
+
+### Feature
+
+**Tags**
+
+Rules:
+
+* None
+
+But implemented as:
+
+```
+CreateTagService
+DeleteTagService
+Tag
+TagRepository (port)
+JpaTagRepository
+```
+
+### Problem
+
+* No business logic
+* No reuse
+* High ceremony
+* Slower development
+
+👉 This violates the rule of thumb.
+
+---
+
+## Visual summary
+
+```
+Simple CRUD
+Controller → Repo
+
+↓ rules appear
+
+Thin Service
+Controller → Service → Repo
+
+↓ reuse + risk
+
+Mini-Hexagon
+Controller → Core → Ports → Adapters
+```
+
+---
+
+## Key pattern to notice
+
+> **Features evolve left → right**
+> You don’t need to start on the right.
+
+## Final takeaway
+
+> **Use architecture as a response to complexity, not as a default.
+> Protect what hurts to change — ignore what doesn’t.**
+
+If you want next, I can:
+
+* Show a **step-by-step refactor** from Example 2 → Example 4
+* Map these examples to **Clean Architecture / DDD**
+* Give a **1-page cheat sheet** you can share with your team
+
 ## Architecture Checklist: How much structure does this feature need?
 
 ### 1️⃣ Business Rules
