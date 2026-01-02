@@ -47,6 +47,98 @@ Adding more boundaries is expensive. System evolve, boundaries evolve, architect
 
 Boundaries help to delay decisions. Build a system without connecting to the real database using in-memory and later swap against real database. Boundaries enable clean separation between UI, LOGIC, STORAGE. This helps to swap out of any of the components without affecting the whole system. Change UI keep the logic and the storage or change the logic, keep the UI and the storage. It is important for our system to allow change. Boundaries allow change in the system!
 
+## Architecture Checklist: How much structure does this feature need?
+
+### 1️⃣ Business Rules
+
+* ⬜ Just data in / data out
+* ⬜ Simple validation only
+* ⬜ Real rules, invariants, policies
+
+➡️ *If you check the last box → add a core*
+
+---
+
+### 2️⃣ Entry Points
+
+* ⬜ Single entry point (HTTP only)
+* ⬜ More than one (API, job, webhook, UI, events)
+
+➡️ *2+ entry points → mini-hexagon*
+
+---
+
+### 3️⃣ Change Frequency
+
+* ⬜ Rarely changes
+* ⬜ Changes occasionally
+* ⬜ Changes often / still evolving
+
+➡️ *Frequent change → stronger boundaries*
+
+---
+
+### 4️⃣ Risk Level
+
+* ⬜ Low impact if broken
+* ⬜ User-facing annoyance
+* ⬜ Money / legal / trust involved
+
+➡️ *High risk → isolate business logic*
+
+---
+
+### 5️⃣ Reuse & Ownership
+
+* ⬜ Used in one place
+* ⬜ Will be reused later
+* ⬜ Used by multiple teams
+
+➡️ *Shared logic → protect with a core*
+
+---
+
+### 6️⃣ Testability
+
+* ⬜ Easy to test without mocks
+* ⬜ Requires DB / HTTP mocks everywhere
+
+➡️ *Hard to test → introduce ports*
+
+---
+
+### 7️⃣ Time Horizon
+
+* ⬜ Short-lived / throwaway
+* ⬜ Long-lived core capability
+
+➡️ *Long-lived → invest in architecture*
+
+---
+
+## Decision Guide
+
+| Mostly checked | Choose                        |
+| -------------- | ----------------------------- |
+| Top options    | Controller → Repository       |
+| Middle options | Thin Service                  |
+| Bottom options | Vertical slice + mini-hexagon |
+
+---
+
+## One-line gut check
+
+> *If the feature breaks, who wakes up at 3am?*
+> If the answer is “nobody” → keep it simple.
+
+---
+
+## Team rule (recommended)
+
+> *You must justify complexity, not simplicity.*
+
+Architecture is opt-in, not default.
+
 ```
   Micro‑hex in simple words
 
